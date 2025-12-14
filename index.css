@@ -1,0 +1,553 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary-red: #D32F2F;
+  --color-primary-dark: #8B0000;
+  --color-accent-amber: #FFC107;
+  --color-neutral-dark: #1A1A1A;
+  --color-neutral-light: #F5F5F5;
+
+  --nis-bg: #020617;
+  --nis-panel: #020617;
+  --nis-panel-elevated: #0b1220;
+  --nis-accent: #c8102e;
+  --nis-accent-soft: rgba(200, 16, 46, 0.35);
+  --nis-text-main: #f9fafb;
+  --nis-text-muted: #9ca3af;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-dark text-gray-100 font-sans;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-3xl border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-2xl border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-brand-charcoal/60 backdrop-blur-xl border border-white/5;
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+/* Custom Scrollbar for the page */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D32F2F;
+}
+
+/* Animations */
+@keyframes aurora {
+  0% {
+    background-position: 50% 50%, 50% 50%;
+  }
+
+  100% {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-aurora {
+  animation: aurora 60s linear infinite;
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripple 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes pulseSlow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Timeline CSS (New) */
+:root {
+  --nis-bg: #020617;
+  --nis-panel: #020617;
+  --nis-panel-elevated: #0b1220;
+  --nis-accent: #c8102e;
+  --nis-accent-soft: rgba(200, 16, 46, 0.35);
+  --nis-text-main: #f9fafb;
+  --nis-text-muted: #9ca3af;
+}
+
+.nis-timeline-section {
+  /* background: radial-gradient(circle at top, #111827, #020617 60%, #020617); */
+  /* Using brand colors instead */
+  @apply bg-brand-dark;
+  padding: 5rem 1.5rem;
+  color: var(--nis-text-main);
+  position: relative;
+  z-index: 10;
+}
+
+.nis-timeline-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nis-timeline-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3.5rem;
+}
+
+.nis-timeline-header .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: var(--nis-accent);
+  margin-bottom: 0.4rem;
+}
+
+.nis-timeline-header h2 {
+  font-size: 2.1rem;
+  margin-bottom: 0.5rem;
+  @apply font-heading font-bold;
+}
+
+.nis-timeline-header .subtitle {
+  font-size: 0.95rem;
+  color: var(--nis-text-muted);
+}
+
+.nis-timeline-wrapper {
+  position: relative;
+  margin-top: 1rem;
+  padding: 3rem 0;
+}
+
+/* Center line */
+.nis-timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(to bottom,
+      rgba(31, 41, 55, 0.4),
+      rgba(31, 41, 55, 0.9));
+  pointer-events: none;
+}
+
+/* RTL Support for Line */
+[dir="rtl"] .nis-timeline-line {
+  /* left: auto;
+    right: 50%;
+    transform: translateX(50%); */
+  /* Actually left 50% works for both LTR and RTL if the container is relative and no flex direction mess */
+}
+
+.nis-timeline-line--active {
+  background: linear-gradient(to bottom,
+      rgba(248, 113, 113, 0.3),
+      var(--nis-accent));
+  bottom: auto;
+  height: 0;
+  /* overridden inline */
+  transition: height 0.3s ease-out;
+}
+
+/* Rows */
+.nis-timeline-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr);
+  column-gap: 2.5rem;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+}
+
+.nis-timeline-row:last-child {
+  margin-bottom: 0;
+}
+
+/* LTR placements */
+html[dir="ltr"] .nis-timeline-row.left .nis-timeline-card {
+  grid-column: 1 / 2;
+  justify-self: flex-end;
+}
+
+html[dir="ltr"] .nis-timeline-row.left .nis-timeline-dot-wrapper {
+  grid-column: 2 / 3;
+}
+
+html[dir="ltr"] .nis-timeline-row.right .nis-timeline-card {
+  grid-column: 3 / 4;
+  justify-self: flex-start;
+}
+
+html[dir="ltr"] .nis-timeline-row.right .nis-timeline-dot-wrapper {
+  grid-column: 2 / 3;
+}
+
+/* RTL placements */
+html[dir="rtl"] .nis-timeline-row.left .nis-timeline-card {
+  grid-column: 3 / 4;
+  justify-self: flex-start;
+}
+
+html[dir="rtl"] .nis-timeline-row.left .nis-timeline-dot-wrapper {
+  grid-column: 2 / 3;
+}
+
+html[dir="rtl"] .nis-timeline-row.right .nis-timeline-card {
+  grid-column: 1 / 2;
+  justify-self: flex-end;
+}
+
+html[dir="rtl"] .nis-timeline-row.right .nis-timeline-dot-wrapper {
+  grid-column: 2 / 3;
+}
+
+
+/* Dot */
+.nis-timeline-dot-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.nis-timeline-dot {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 3px solid rgba(148, 163, 184, 0.4);
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+  z-index: 20;
+}
+
+.nis-timeline-dot .dot-inner {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.8);
+  transition: background 0.25s ease;
+}
+
+.nis-timeline-dot.on {
+  border-color: var(--nis-accent-soft);
+  box-shadow: 0 0 0 10px rgba(200, 16, 46, 0.2);
+  transform: scale(1.1);
+}
+
+.nis-timeline-dot.on .dot-inner {
+  background: var(--nis-accent);
+}
+
+/* Card */
+.nis-timeline-card {
+  position: relative;
+  max-width: 430px;
+  background: radial-gradient(circle at top, #1e293b, #0f172a 100%);
+  border-radius: 20px;
+  padding: 1.8rem 2rem 1.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(45px) scale(0.96);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.nis-timeline-row.is-active .nis-timeline-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.nis-timeline-card:hover {
+  box-shadow: 0 16px 45px rgba(248, 113, 113, 0.25);
+  border-color: rgba(248, 113, 113, 0.8);
+}
+
+.nis-timeline-card .card-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--nis-accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.nis-timeline-card h3 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0 0.35rem;
+  color: white;
+  @apply font-heading font-bold;
+}
+
+.nis-timeline-card .card-short {
+  font-size: 0.9rem;
+  color: var(--nis-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.card-bullets {
+  list-style: disc;
+  padding-inline-start: 1.2rem;
+  /* Logical property for RTL */
+  font-size: 0.9rem;
+  color: var(--nis-text-muted);
+  margin-bottom: 0.7rem;
+}
+
+.card-bullets li+li {
+  margin-top: 0.18rem;
+}
+
+.card-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.35s ease,
+    margin-top 0.35s ease;
+}
+
+.nis-timeline-row.is-expanded .card-details {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-cta {
+  margin-top: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--nis-accent);
+  background: linear-gradient(135deg,
+      rgba(200, 16, 46, 0.12),
+      rgba(248, 113, 113, 0.2));
+  color: #fee2e2;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card-cta:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(248, 113, 113, 0.3);
+  border-color: #fca5a5;
+  color: white;
+}
+
+/* RTL icon rotation */
+[dir="rtl"] .card-cta-icon {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .nis-timeline-wrapper {
+    padding-top: 2rem;
+  }
+
+  .nis-timeline-row {
+    grid-template-columns: 24px 1fr;
+    column-gap: 1.1rem;
+  }
+
+  .nis-timeline-row.left .nis-timeline-card,
+  .nis-timeline-row.right .nis-timeline-card {
+    grid-column: 2 / 3;
+    justify-self: stretch;
+    /* Full width on mobile */
+  }
+
+  html[dir="ltr"] .nis-timeline-row.left .nis-timeline-card,
+  html[dir="rtl"] .nis-timeline-row.left .nis-timeline-card,
+  html[dir="ltr"] .nis-timeline-row.right .nis-timeline-card,
+  html[dir="rtl"] .nis-timeline-row.right .nis-timeline-card {
+    grid-column: 2 / 3;
+    justify-self: stretch;
+  }
+
+  .nis-timeline-dot-wrapper {
+    grid-column: 1 / 2;
+  }
+
+  /* We need to fix the alignment of dot and line for both LTR and RTL on mobile */
+  .nis-timeline-line,
+  .nis-timeline-line--active {
+    left: 12px;
+    transform: translateX(0);
+    right: auto;
+  }
+
+  [dir="rtl"] .nis-timeline-line,
+  [dir="rtl"] .nis-timeline-line--active {
+    right: 12px;
+    left: auto;
+    transform: translateX(0);
+  }
+}
